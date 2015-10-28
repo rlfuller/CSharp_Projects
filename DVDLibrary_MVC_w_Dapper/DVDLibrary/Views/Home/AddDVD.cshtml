@@ -1,0 +1,43 @@
+﻿@model DVDLibrary.Models.AddDVDVM
+
+@{
+    ViewBag.Title = "AddDVD";
+}
+
+<h2>Add a new DVD</h2>
+
+@using (Html.BeginForm("AddDVD", "Home", FormMethod.Post))
+{
+    <div class="form-group''"></div>
+
+    <label> Title </label>@Html.ValidationMessageFor(d => d.DvdToAdd.Title)
+    @Html.TextBoxFor(m => m.DvdToAdd.Title, new { @class = "form-control", @placeholder = " No more than 140 characters "})
+    <br/>
+
+    <label> Director </label>@Html.ValidationMessageFor(d => d.DvdToAdd.Director)
+    @Html.TextBoxFor(m => m.DvdToAdd.Director, new { @class = "form-control", @placeholder = " No more than 90 characters " })
+    <br/>
+
+    <label> Release Date </label>
+    @Html.EditorFor(m => m.DvdToAdd.ReleaseDate, new { @class = "form-control datepicker" })
+    <br/>
+    <br/>
+
+    <label> MPAA Rating </label>
+     @Html.DropDownListFor(m => m.DvdToAdd.MPAA, Model.MPAASelectList)
+    <br/>
+    <br/>
+
+    <label> Studio </label>
+    @Html.DropDownListFor(m => m.DvdToAdd.StudioID, Model.StudioNameSelectList);
+    <br/>
+    <br/>
+
+    <label> Actors </label>
+    @Html.ListBoxFor(m => m.ActorSelectedValues, Model.ActorSelectList);
+    <p>Use control 'ctrl' on your keyboard to select multiple items</p>
+
+    <br/>
+    <button class="btn"> Submit </button>
+}
+

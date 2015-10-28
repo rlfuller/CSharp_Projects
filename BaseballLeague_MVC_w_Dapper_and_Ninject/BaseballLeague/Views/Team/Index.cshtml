@@ -1,0 +1,22 @@
+﻿@model List<BaseballLeague.Models.Team>
+
+<h2>Teams</h2>
+<table class="table">
+    <tr>
+        <th>Team Name</th>
+        <th>Manager Name</th>
+    </tr>
+
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(x => m.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(x => m.ManagerName)
+            </td>
+        </tr>
+    }
+   
+</table>

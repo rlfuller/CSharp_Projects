@@ -1,0 +1,73 @@
+﻿@model BaseballLeague.Models.AddPlayerVM
+
+@{
+    ViewBag.Title = "AddPlayer";
+}
+
+<h2>Add Player</h2>
+
+
+@using (Html.BeginForm("AddPlayer", "Player", FormMethod.Post, new {id = "addPlayerForm"})) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerToAdd.PlayerName, "Name", htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                <p style="color: red">@Html.ValidationMessageFor(m => m.PlayerToAdd.PlayerName)</p>
+                @Html.EditorFor(model => model.PlayerToAdd.PlayerName, new {htmlAttributes = new {@class = "form-control"}})
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerToAdd.JerseyNumber, "Jersey Number", htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                <p style="color: red">@Html.ValidationMessageFor(m => m.PlayerToAdd.JerseyNumber)</p>
+                @Html.EditorFor(model => model.PlayerToAdd.JerseyNumber, new {htmlAttributes = new {@class = "form-control"}})
+            </div>
+        </div>
+        <div class="form-group">
+                @Html.LabelFor(model => model.PlayerToAdd.PositionID, "Position", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <p style="color: red">@Html.ValidationMessageFor(m => m.PlayerToAdd.PositionID)</p>
+                @Html.DropDownListFor(model => model.PlayerToAdd.PositionID, Model.PositionSelectList, "-Select One-", htmlAttributes: new {@class = "control-label col-md-2"})
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerToAdd.PreviousYrsBattingAvg, "Previous Years Batting Average", htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PlayerToAdd.PreviousYrsBattingAvg, new {htmlAttributes = new {@class = "form-control"}})
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerToAdd.NumYrsPlayed, "Years played", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PlayerToAdd.NumYrsPlayed, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TeamSelectedValue, "Team", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.PlayerToAdd.TeamID, Model.TeamNameSelectList, "-Select One-", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.ValidationMessageFor(model => model.TeamSelectedValue, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add Player" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts
+{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/app/jquery-validate-defaults.js"></script>
+    <script src="~/Scripts/app/addPlayerValidation.js"></script>
+}
+
+

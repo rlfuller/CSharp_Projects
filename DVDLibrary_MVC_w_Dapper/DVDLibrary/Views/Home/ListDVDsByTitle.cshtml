@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DVDLibrary.Models.DVD>
+
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MPAA)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReleaseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MPAA)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "DVDDetails", new {id = item.DVDId}) |
+            @Html.ActionLink("Delete", "RemoveDVD", "Home", new { id = item.DVDId }, new { onclick="return confirm('Are you sure you wish to delete this DVD?')"} )
+               
+        </td>
+    </tr>
+}
+
+</table>
+
+@*@Html.ActionLink("Add a DVD", "AddDVD", "Home", new { area = "" }, new { @class = "navbar-brand" })*@

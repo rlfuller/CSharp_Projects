@@ -1,0 +1,63 @@
+﻿@model BaseballLeague.Models.AddPlayerSuccessVM
+
+
+<h2>Congratulations, your player was added!</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerToAdd.PlayerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerToAdd.PlayerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerToAdd.JerseyNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerToAdd.JerseyNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerToAdd.PreviousYrsBattingAvg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerToAdd.PreviousYrsBattingAvg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerToAdd.NumYrsPlayed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerToAdd.NumYrsPlayed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Team)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Team)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Add Another Player", "AddPlayer", "Player") |
+    @Html.ActionLink("Home", "Index", "Home")
+</p>

@@ -1,0 +1,56 @@
+﻿@model DVDLibrary.Models.DVDDetailVM
+
+@{
+    ViewBag.Title = "DVDDetails";
+}
+
+<h2>DVD Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Dvd.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dvd.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dvd.Director)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dvd.Director)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dvd.MPAA)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dvd.MPAA)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dvd.ReleaseDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dvd.ReleaseDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StudioDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StudioDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ActorNames)
+        </dt>
+        <dd>
+            @foreach (var item in Model.ActorNames)
+            {
+                <p style="padding: 0; margin: 0">@item</p>
+            }        
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("View Borrower History", "ListBorrowersByDVD", new { id = Model.Dvd.DVDId })
+    
+</p>

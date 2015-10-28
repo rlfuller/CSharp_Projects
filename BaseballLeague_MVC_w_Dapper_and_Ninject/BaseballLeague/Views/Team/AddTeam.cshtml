@@ -1,0 +1,27 @@
+﻿@model BaseballLeague.Models.AddTeamVM
+
+<h2>Add A Team</h2>
+
+@using (Html.BeginForm("AddTeam", "Team", FormMethod.Post, new {id = "addTeamForm"}))
+{
+    <div class="form-group">
+        <label>Team Name</label>
+        <p style="color: red">@Html.ValidationMessageFor(m => m.NewTeam.TeamName)</p>
+        @Html.TextBoxFor(m => m.NewTeam.TeamName, new { @class="form-control", @placeholder="Team Name Here"})
+        <br />
+        <label>Manager Name</label>
+        <p style="color: red">@Html.ValidationMessageFor(m => m.NewTeam.ManagerName)</p>
+        @Html.TextBoxFor(m => m.NewTeam.ManagerName, new { @class = "form-control", @placeholder = "Manager Name Here"})
+        <br />
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+
+}
+
+@section Scripts
+{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/app/jquery-validate-defaults.js"></script>
+    <script src="~/Scripts/app/addTeamValidation.js"></script>
+}

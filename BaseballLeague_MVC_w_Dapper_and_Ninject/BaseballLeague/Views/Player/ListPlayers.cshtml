@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BaseballLeague.Models.Player>
+
+@{
+    ViewBag.Title = "ListPlayers";
+}
+
+<h2>Players for Team @ViewBag.Team</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JerseyNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PositionID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreviousYrsBattingAvg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumYrsPlayed)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JerseyNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PositionID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreviousYrsBattingAvg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumYrsPlayed)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PlayerID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PlayerID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PlayerID })
+        </td>
+    </tr>
+}
+
+</table>

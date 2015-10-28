@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "NoResults";
+}
+
+<h2>Error</h2>
+
+<p>You must enter at least one search term to search by title</p>
+
+@Html.ActionLink("Try Again", "SearchByTitle", "Home", new { area = "" }, new { @class = "navbar-brand" })
+@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+

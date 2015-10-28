@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome</h2>
+
+@Html.ActionLink("Add a DVD", "AddDVD", "Home", new { area = "" }, new { @class = "navbar-brand" })
+@Html.ActionLink("View all DVDs", "GetAllDVDs", "Home", new { area = "" }, new { @class = "navbar-brand" })
+@Html.ActionLink("Search by Title", "SearchByTitle", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+<br/><br /><br />
+
+<img src="/Content/talladega.jpg" alt="Talladega Nights" style="width: 600px; height: 300px" align="left"/>
+
+    
+

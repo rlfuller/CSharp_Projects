@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "NoResults";
+}
+
+<h2>No Results</h2>
+
+<p>Your search returned no values. </p>
+
+@Html.ActionLink("Try Again", "SearchByTitle", "Home", new { area = "" }, new { @class = "navbar-brand" })
+@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+

@@ -1,0 +1,71 @@
+﻿@model DVDLibrary.Models.DvdBorrowerDetailVM
+
+@{
+    ViewBag.Title = "ListBorrowersByDVD";
+}
+
+<h2>Borrower Details for @Model.Dvd.Title - Released: @Model.Dvd.ReleaseDate.Date.ToString("MM/dd/yyyy")</h2>
+
+
+<table class="table">
+    <tr>
+
+        <th>
+            Date Borrowed
+        </th>
+        <th>
+            Date Returned
+        </th>
+        <th>
+            Borrower
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model.BorrowerDetails)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateBorrowed)
+            </td>
+            <td>
+                @{
+                    var dateReturned = "";
+                    if (item.DateReturned == null)
+                    {
+                        dateReturned = "still checked out";
+                    }
+                    else
+                    {
+                        dateReturned = item.DateReturned.Value.ToString("MM/dd/yyyy");
+                    }
+
+                }
+
+                @dateReturned
+                
+                @*@Html.DisplayFor(modelItem => item.DateReturned)*@
+            </td>
+
+            <td>
+                @{
+                    var name = "";
+                    foreach (var borrower in Model.Borrowers)
+                    {
+                        if (borrower.BorrowerId == item.BorrowerId)
+                        {
+                            name = borrower.BorrowerName;
+                        }
+                    }
+                }
+
+                @name
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+@Html.ActionLink("View all DVDs", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
